@@ -13,8 +13,10 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.users.index');
     }
+
+
 
     /**
      * Show the form for creating a new resource.
