@@ -11,8 +11,8 @@
 $fa-font-path:  "../webfonts";
 
 //Fonts
-@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
-
+// @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 
 #admin-page{
   padding-top:0px;

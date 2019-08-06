@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Admin</title>
-
+    
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
