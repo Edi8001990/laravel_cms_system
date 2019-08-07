@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Admin</title>
-    
+
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
@@ -128,7 +128,7 @@
                             </li>
 
                             <li>
-                                <a href="/users/create">Create User</a>
+                                <a href="{{route('admin.users.create')}}">Create User</a>
                             </li>
 
                         </ul>

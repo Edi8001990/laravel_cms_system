@@ -37,6 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+      // Make relation by Edi800
     public function role(){
       return $this->belongsTo('App\Role');
     }

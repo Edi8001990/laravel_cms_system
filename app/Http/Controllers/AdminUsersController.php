@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsersRequest;
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
+
 class AdminUsersController extends Controller
 {
     /**
@@ -13,7 +16,7 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-
+        // Show all Users by Edi800
         $users = User::all();
         return view('admin.users.index', compact('users'));
     }
@@ -27,7 +30,10 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+                                        // Creaete Users by Edi800
+        $roles = Role::pluck('name', 'id')->all();
+
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -36,9 +42,9 @@ class AdminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsersRequest $request)
     {
-        //
+        return $request->all();
     }
 
     /**
@@ -49,6 +55,7 @@ class AdminUsersController extends Controller
      */
     public function show($id)
     {
+              // Find specific user by Id by Edi800
         return view('admin.users.show');
     }
 
@@ -60,6 +67,7 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
+      // Edit specific user by Id by Edi800
           return view('admin.users.edit');
     }
 
