@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
@@ -26,6 +24,6 @@ Route::resource('admin/users/create', 'AdminUsersController');
 Route::name('admin')->resource('/admin/users', 'AdminUsersController');
 
 
-Route::get('/admin', function(){
+Route::get('/', function(){
   return view('admin.index');
 });
