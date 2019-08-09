@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Http\Requests\UsersRequest;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
-
 class AdminUsersController extends Controller
 {
     /**
@@ -20,9 +17,6 @@ class AdminUsersController extends Controller
         $users = User::all();
         return view('admin.users.index', compact('users'));
     }
-
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -32,10 +26,8 @@ class AdminUsersController extends Controller
     {
                                         // Creaete Users by Edi800
         $roles = Role::pluck('name', 'id')->all();
-
         return view('admin.users.create', compact('roles'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -44,11 +36,9 @@ class AdminUsersController extends Controller
      */
     public function store(UsersRequest $request)
     {
-
         User::create($request->all());
         return redirect('/admin/users');
     }
-
     /**
      * Display the specified resource.
      *
@@ -60,7 +50,6 @@ class AdminUsersController extends Controller
               // Find specific user by Id by Edi800
         return view('admin.users.show');
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -72,7 +61,6 @@ class AdminUsersController extends Controller
       // Edit specific user by Id by Edi800
           return view('admin.users.edit');
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -84,7 +72,6 @@ class AdminUsersController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
