@@ -38,7 +38,7 @@ class AdminUsersController extends Controller
     public function store(UsersRequest $request)
     {
         // User::create($request->all());
-        // return redirect('/admin/users');
+
 
         $input = $request->all();
 
@@ -50,9 +50,14 @@ class AdminUsersController extends Controller
 
           $input['photo_id'] = $photo->id;
         }
+
+        
         $input['password'] = bcrypt($request->password);
 
         User::create($input);
+
+
+        return redirect('/admin/users');
     }
     /**
      * Display the specified resource.
