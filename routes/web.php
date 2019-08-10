@@ -15,15 +15,29 @@
 
 Auth::routes();
 
+// Route::get('/home', 'HomeController@index');
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::resource('admin/users', 'AdminUsersController');
-Route::resource('admin/users/create', 'AdminUsersController');
-
-Route::name('admin')->resource('/admin/users', 'AdminUsersController');
 
 
-Route::get('/', function(){
-  return view('admin.index');
+
+Route::group(['middleware'=>'admin'], function(){
+
+
+
+  Route::name('admin')->resource('/admin/users', 'AdminUsersController');
+  Route::get('/', function(){
+    return view('admin.index');
+  });
+
+
+
 });
+
+// Route::resource('/admin/users', 'AdminUsersController');
+
+// Route::resource('admin/users/create', 'AdminUsersController');
