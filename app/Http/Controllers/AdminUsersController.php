@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UsersRequest;
 use App\Http\Requests\UsersEditRequest;
 use Illuminate\Http\Request;
@@ -28,6 +29,8 @@ class AdminUsersController extends Controller
     {
                                         // Creaete Users by Edi800
         $roles = Role::pluck('name', 'id')->all();
+
+
         return view('admin.users.create', compact('roles'));
     }
     /**
@@ -62,7 +65,7 @@ class AdminUsersController extends Controller
 
 
         User::create($input);
-
+        Session::flash('created_user', 'The user has been created');
 
         return redirect('/admin/users');
     }
@@ -88,6 +91,7 @@ class AdminUsersController extends Controller
       // Edit specific user by Id by Edi800
         $user = User::findOrFail($id);
         $roles = Role::pluck('name', 'id')->all();
+
           return view('admin.users.edit', compact('user', 'roles'));
     }
     /**
@@ -121,7 +125,7 @@ class AdminUsersController extends Controller
         $input['photo_id'] = $photo->id;
       }
         $user->update($input);
-
+        Session::flash('updated_user', 'The user has been updated');
         return redirect('/admin/users');
     }
     /**
@@ -133,6 +137,9 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         User::findOrFail($id)->delete();
+
+        Session::flash('deleted_user', 'The user has been deleted');
+
         return redirect('admin/users');
     }
 }
